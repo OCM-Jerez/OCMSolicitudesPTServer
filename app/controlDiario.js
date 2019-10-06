@@ -4,17 +4,25 @@ module.exports = (app, db) => {
         db.controlesDiarios.findAll().then((result) => res.json(result))
     );
 
-    app.get(baseUrl + "/controlDiario/:id", (req, res) =>
-        db.controlDiarios.findByPk(req.params.id).then((result) => res.json(result))
-    );
+    app.get(baseUrl + "/controlDiario/:id", (req, res) => {
+        console.log(req.params);
+        db.controlesDiarios.findByPk(req.params.id).then((result) => {
+            console.log(result);
+            return res.json(result);
+        });
+    });
 
     app.post(baseUrl + "/controlDiario", (req, res) =>
         db.controlesDiarios.create({
             idControl: req.body.idControl,
             turno: req.body.turno,
             fecha: req.body.fecha,
-            idEmpleado: req.body.idEmpleado
-        }).then((result) => res.json(result))
+            idEmpleado: req.body.idEmpleado,
+            idtTurno: req.body.idtTurno
+        }).then(result => {
+            console.log(result);
+            return res.json(result);
+        })
     );
 
     app.put(baseUrl + "/controlDiario", (req, res) =>
@@ -22,18 +30,24 @@ module.exports = (app, db) => {
             idControl: req.body.idControl,
             turno: req.body.turno,
             fecha: req.body.fecha,
-            idEmpleado: req.body.idEmpleado
+            idEmpleado: req.body.idEmpleado,
+            idtTurno: req.body.idtTurno
         }, {
             where: {
-                idcontrolDiario: req.body.idcontrolDiario
+                idControlDiario: req.body.idControlDiario
             }
-        }).then((result) => res.json(result))
+        }).then((result) => {
+            console.log(result);
+            return res.json(result);
+        }).catch(function(err) {
+            console.log(err);
+        })
     );
 
     app.delete(baseUrl + "/controlDiario/:id", (req, res) =>
         db.controlesDiarios.destroy({
             where: {
-                idcontrolDiario: req.params.id
+                idControlDiario: req.params.id
             }
         }).then((result) => res.json(result))
     );

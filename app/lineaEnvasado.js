@@ -10,16 +10,14 @@ module.exports = (app, db) => {
 
     app.post(baseUrl + "/lineaEnvasado", (req, res) =>
         db.lineasEnvasado.create({
-            descripcion: req.body.descripcion,
-            idLineaEnvasado: req.body.idLineaEnvasado
-         }).then((result) => res.json(result))
+            descripcion: req.body.descripcion
+        }).then((result) => res.json(result))
     );
-    
-    
+
+
     app.put(baseUrl + "/lineaEnvasado", (req, res) =>
         db.lineasEnvasado.update({
-            descripcion: req.body.descripcion,
-            idLineaEnvasado: req.body.idLineaEnvasado
+            descripcion: req.body.descripcion
         }, {
             where: {
                 idLineaEnvasado: req.body.idLineaEnvasado

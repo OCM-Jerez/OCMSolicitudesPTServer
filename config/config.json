@@ -1,8 +1,8 @@
 {
     "development": {
-        "username": "jlopez",
-        "password": "/juanMa123456",
-        "database": "control",
+        "username": "root",
+        "password": "mamtrucha0121",
+        "database": "Control",
         "host": "localhost",
         "dialect": "mysql",
         "operatorsAliases": "false"
