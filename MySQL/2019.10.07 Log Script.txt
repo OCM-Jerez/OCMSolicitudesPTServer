@@ -1,0 +1,42 @@
+Executing SQL script in server
+ERROR: Error 1822: Failed to add the foreign key constraint. Missing index for constraint 'fk_user_user' in the referenced table 'user'
+SQL Code:
+        CREATE TABLE IF NOT EXISTS `solicitudes`.`user` (
+          `idUser` INT NOT NULL AUTO_INCREMENT,
+          `nombre` VARCHAR(45) NULL,
+          `apellido1` VARCHAR(45) NULL,
+          `apellido2` VARCHAR(45) NULL,
+          `email` VARCHAR(45) NULL,
+          `user_name` VARCHAR(12) NOT NULL,
+          `password` VARCHAR(12) NOT NULL,
+          `avatar` BLOB NULL,
+          `observaciones` VARCHAR(45) NULL,
+          `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+          `update_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+          `create_idUser` INT NULL,
+          `update_idUser` INT NULL,
+          `user_idUser` INT NOT NULL,
+          `user_idUser1` INT NOT NULL,
+          `user_rol_idUserRol` INT NOT NULL,
+          PRIMARY KEY (`idUser`),
+          CONSTRAINT `fk_user_user`
+            FOREIGN KEY (`idUser`)
+            REFERENCES `solicitudes`.`user` (`idUser`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+          CONSTRAINT `fk_user_user1`
+            FOREIGN KEY (`user_idUser1`)
+            REFERENCES `solicitudes`.`user` (`idUser`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+          CONSTRAINT `fk_user_user_rol1`
+            FOREIGN KEY (`user_rol_idUserRol`)
+            REFERENCES `solicitudes`.`user_rol` (`idUserRol`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION)
+        ENGINE = InnoDB
+
+SQL script execution finished: statements: 15 succeeded, 1 failed
+
+Fetching back view definitions in final form.
+Nothing to fetch
