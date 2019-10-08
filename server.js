@@ -4,9 +4,6 @@
 const express = require("express");
 
 const bodyParser = require("body-parser");
-const faker = require("faker");
-const times = require("lodash.times");
-const random = require("lodash.random");
 const db = require("./src/models");
 const apiEmpleados = require("./src/controllers/empleado");
 const login = require("./src/controllers/login");
