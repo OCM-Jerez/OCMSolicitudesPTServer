@@ -2,7 +2,7 @@
     "development": {
         "username": "root",
         "password": "mamtrucha0121",
-        "database": "Control",
+        "database": "solicitudes",
         "host": "localhost",
         "dialect": "mysql",
         "operatorsAliases": "false"
@@ -18,7 +18,7 @@
     "production": {
         "username": "root",
         "password": "mamtrucha0121",
-        "database": "control",
+        "database": "solicitudes",
         "host": "127.0.0.1",
         "dialect": "mysql",
         "operatorsAliases": false
